@@ -1,14 +1,9 @@
 # [PackageDev] target_format: plist, ext: tmLanguage
-# Warning: this file is out-of-date: while I'd rather 
-# edit this compared to XML, I don't know yet a simple
-# way to build xml file from this yaml file, without using
-# external tools other than sublime. See associated
-# .tmLanguage file that contains most recent version.
 
 ---
 name: kOS
 scopeName: source.kos
-fileTypes: [txt, kos]
+fileTypes: [ks]
 uuid: a73c33ac-e3fa-45c6-ba20-040413ac4dc4
 
 patterns:
@@ -24,23 +19,23 @@ patterns:
     '1': { name: keyword.source.kos }
     '2': { name: keyword.source.kos }
 
-- match: \s*(?i:(set|log|rename))\s.*(?i:(to))\s*
+- match: (?i:(set|log|rename))\s+[\w]+\s+((?i:to))
   name: text.source.kos
   captures:
     '1': { name: keyword.source.kos }
     '2': { name: keyword.source.kos }
 
-- match: \s*(?i:(copy))\s.*(?i:(to|from))\s*
+- match: (?i:(copy))\s.*(?i:(to|from))
   name: text.source.kos
   captures:
-      '1': { name: keyword.source.kos }
-      '2': { name: keyword.source.kos }
+    '1': { name: keyword.source.kos }
+    '2': { name: keyword.source.kos }
 
 - match: \s*(?i:(delete))\s.*(?i:(from))\s*
   name: text.source.kos
   captures:
-      '1': { name: keyword.source.kos }
-      '2': { name: keyword.source.kos }
+    '1': { name: keyword.source.kos }
+    '2': { name: keyword.source.kos }
 
 - match: \b(?i:(lock))\s.*(?i:(to))\b
   name: text.source.kos
@@ -51,26 +46,28 @@ patterns:
 - match: \b(?i:(print))\s[^"]+(?i:(at))\b
   name: text.source.kos
   captures:
-      '1': { name: keyword.source.kos }
-      '2': { name: keyword.source.kos }
+    '1': { name: keyword.source.kos }
+    '2': { name: keyword.source.kos }
 
-- match: \b(?i:(when))\s.+(?i:(then))\b
+- match: \b(?i:(when))\s+.+\s+(?i:(then))\b
   name: text.source.kos
+  captures:
+    '1': { name: keyword.source.kos }
+    '2': { name: keyword.source.kos }
 
-- match: \b(?i:add|remove|break|clearscreen|delete|declare( parameter)?|edit|print|remove|run|stage|switch to|toggle|unlock|warp|reboot|shutdown|list|reboot)\b
+- match: \b(?i:add|remove|break|clearscreen|delete|declare( parameter)?|edit|print|set|remove|run|stage|switch to|toggle|unlock|warp|reboot|shutdown|list|reboot)\b
   name: keyword.source.kos
 
 - match: \b(?i:until|if|wait)\b
   name: keyword.control.kos
 
-
 - match: \b(?i:and|or)\b
   name: keyword.operator.kos
 
-- match: \b(?i:sas|gear|rcs|lights|brakes|legs|chutes|panels) (on|off)\b
+- match: \b(?i:sas|gear|rcs|lights|brakes|legs|chutes|panels) (?i:on|off)\b
   name: support.function.source.kos
 
-- match: \b(?i:abs|mod|floor|ceiling|round|round|sqrt|sin|cos|tan|arcsin|arccos|arctan|arctan2)\b
+- match: \b(?i:abs|mod|min|max|floor|ceiling|round|round|sqrt|sin|cos|tan|arcsin|arccos|arctan|arctan2)\b
   name: support.function.source.kos
 
 - begin: \"
