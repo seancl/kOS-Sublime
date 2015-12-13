@@ -28,14 +28,14 @@ patterns:
 - match: (?i:(copy))\s.*(?i:(to|from))
   name: text.source.kos
   captures:
-      '1': { name: keyword.source.kos }
-      '2': { name: keyword.source.kos }
+    '1': { name: keyword.source.kos }
+    '2': { name: keyword.source.kos }
 
 - match: \s*(?i:(delete))\s.*(?i:(from))\s*
   name: text.source.kos
   captures:
-      '1': { name: keyword.source.kos }
-      '2': { name: keyword.source.kos }
+    '1': { name: keyword.source.kos }
+    '2': { name: keyword.source.kos }
 
 - match: \b(?i:(lock))\s.*(?i:(to))\b
   name: text.source.kos
@@ -46,8 +46,8 @@ patterns:
 - match: \b(?i:(print))\s[^"]+(?i:(at))\b
   name: text.source.kos
   captures:
-      '1': { name: keyword.source.kos }
-      '2': { name: keyword.source.kos }
+    '1': { name: keyword.source.kos }
+    '2': { name: keyword.source.kos }
 
 - match: \b(?i:(when))\s+.+\s+(?i:(then))\b
   name: text.source.kos
